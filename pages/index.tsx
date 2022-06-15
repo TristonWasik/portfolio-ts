@@ -30,9 +30,9 @@ const Home: NextPage = () => {
       title: "RecipeHost",
       description:
         "A self-hosted recipe app that offers Peer-to-Peer (P2P) downloads of recipes and public data. This removes the need of a dedicated server and allows hosts to share and collaborate with other RecipeHost applications.",
-      github: "https://github.com/TristonWasik/RecipeHost",
+      github: "",
       demo: "",
-      img: "https://via.placeholder.com/400x200?text=Project+Image",
+      img: "https://via.placeholder.com/400x200?text=Coming+Soon",
       technology: [
         "NextJS",
         "Prisma",
