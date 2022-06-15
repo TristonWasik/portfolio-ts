@@ -1,169 +1,233 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import { GithubLogo, LinkedinLogo, Envelope, Article } from 'phosphor-react';
-
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { GithubLogo, LinkedinLogo, Envelope, Article } from "phosphor-react";
+import ProjectContent from "../components/projectcontent";
+import { Project } from "../lib/types";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const featured = [
+  const projects: Project[] = [
     {
-      title: 'OKCandles',
-      description: 'An ecommerce site to sell and advertise homemade candles. This project uses Strapi CMS so the client can manage their products with ease.',
-      github: 'githublink',
-      demo: 'demolink',
-      img: 'https://via.placeholder.com/400x200?text=Project+Image',
+      title: "OKCandles",
+      description:
+        "An ecommerce site to sell and advertise homemade candles. This project uses Strapi headless CMS and square API so the client can manage their content and products with ease.",
+      github: "",
+      demo: "https://okcandles.shop",
+      img: "okcandles.png",
       technology: [
-        'ReactJS',
-        'React-Query',
-        'Strapi'
-      ]
+        "NextJS",
+        "Framer-Motion",
+        "Typescript",
+        "Strapi",
+        "Square",
+        "Docker",
+        "React",
+      ],
+      isFeatured: true,
     },
     {
-      title: 'RecipeHost',
-      description: 'A self-hosted recipe app that offers P2P downloads of recipes and public data to share and collaborate with other RecipeHost applications.',
-      github: 'githublink',
-      demo: 'demolink',
-      img: 'https://via.placeholder.com/400x200?text=Project+Image',
+      title: "RecipeHost",
+      description:
+        "A self-hosted recipe app that offers Peer-to-Peer (P2P) downloads of recipes and public data. This removes the need of a dedicated server and allows hosts to share and collaborate with other RecipeHost applications.",
+      github: "https://github.com/TristonWasik/RecipeHost",
+      demo: "",
+      img: "https://via.placeholder.com/400x200?text=Project+Image",
       technology: [
-        'NextJS',
-        'Prisma',
-        'MySQL',
-        'TS',
-        'Strapi'
-      ]
-    },
-  ]
-
-  const projects = [
-    {
-      title: 'Portfolio',
-      description: 'A portfolio designed around simplicity and elegance. Created in NextJS using Typescript.',
-      github: 'githublink',
+        "NextJS",
+        "Prisma",
+        "MySQL",
+        "Typescript",
+        "Docker",
+        "Framer-Motion",
+      ],
+      isFeatured: true,
     },
     {
-      title: 'USB Display Switcher',
-      description: 'A console app created to utilize USB events and detect when a USB switcher changes the device its attached to. It sends DDC/CI commands to the monitors so they change their displays.',
-      github: 'githublink',
+      title: "Portfolio",
+      description:
+        "A portfolio designed around simplicity using typescript. Completely responsive, this design works on any device size using flex.",
+      demo: "",
+      github: "https://github.com/Elfinslayer/Portfolio",
+      technology: ["NextJS", "Framer-Motion", "Typescript"],
     },
     {
-      title: 'Camp Registration App',
-      description: 'A camp registration app for the Eagle River United Methodist Camp.',
-      github: 'githublink',
+      title: "USB Display Switcher",
+      description:
+        "A console app created to utilize USB events and detect when a USB switcher changes the device its attached to. It sends DDC/CI commands to the monitors so they change their displays.",
+      demo: "",
+      github: "https://github.com/Elfinslayer/usb-display-switcher",
+      technology: ["NodeJS"],
     },
     {
-      title: 'Handbrake Automation App',
-      description: 'An app to automate the conversion of video files using the Handbrake CLI. This greatly reduces the filesize of videos for media servers.',
-      github: 'githublink',
+      title: "Collectionizer",
+      description:
+        "Collectionizer is a tool that lets you enter the ID or URL of a steam mod collection and gives you back all of the mod id's in a single list. This has a niche use for dedicated server owners/hosts.",
+      demo: "https://collectionizer.esinnovations.com",
+      github: "https://github.com/Elfinslayer/collectionizer",
+      technology: ["NextJS", "Typescript"],
     },
-  ]
+    {
+      title: "Handbrake Automation App",
+      description:
+        "An app to automate the conversion of video files using the Handbrake CLI. This greatly reduces the filesize of videos for media servers.",
+      demo: "",
+      github: "",
+      technology: ["ReactJS", "SocketIO"],
+    },
+  ];
 
   const work = [
     {
-      title: 'Renegade Hosting',
-      basis: 'Contractual',
-      dates: '03/2015-Present',
-      img: 'https://via.placeholder.com/100x100?text=Employer+Logo'
+      title: "Renegade Hosting",
+      basis: "Contractual",
+      dates: "03/2015-Present",
+      img: "rh.png",
     },
     {
-      title: 'State of Alaska',
-      basis: 'Full-Time',
-      dates: '10/2018-12/2021',
-      img: 'https://via.placeholder.com/100x100?text=Employer+Logo'
+      title: "State of Alaska",
+      basis: "Full-Time",
+      dates: "10/2018-12/2021",
+      img: "alaskaflag.png",
     },
     {
-      title: 'OKCandles',
-      basis: 'Contractual',
-      dates: '10/2021-Present',
-      img: 'https://via.placeholder.com/100x100?text=Employer+Logo'
+      title: "OKCandles",
+      basis: "Contractual",
+      dates: "10/2021-Present",
+      img: "okcandles.jpeg",
     },
-  ]
+  ];
+
+  const volunteer = [
+    {
+      label: "Eagle River United Methodist Camp",
+      dates: "7/2012-Present",
+      position: "Camp Director, Vice President, Counselor",
+      img: "erumc.png",
+    },
+  ];
+
+  const featured = projects.filter((f) => f.isFeatured === true);
+  const miscProjects = projects.filter((f) => !f.isFeatured);
+
+  const SocialLinks = () => {
+    return (
+      <div className={styles.socialLinks}>
+        <a href="https://www.github.com/elfinslayer" title="Github">
+          <GithubLogo size={24} />
+        </a>
+        <a href="https://www.linkedin.com/elfinslayer" title="LinkedIn">
+          <LinkedinLogo size={24} />
+        </a>
+        <a href="mailto:twasik4@gmail.com" title="Email">
+          <Envelope size={24} />
+        </a>
+        <a href="/resume.pdf" title="Resume Download" download>
+          <Article size={24} />
+        </a>
+      </div>
+    );
+  };
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Triston Wasik Portfolio</title>
-        <meta name="description" content="Triston wasik portfolio using neumorphism" />
+        <meta
+          name="description"
+          content="Triston wasik portfolio using neumorphism."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
         <section className={styles.headerContainer}>
           <div className={styles.headerContainer_imageContainer}>
-            <Image src='/me.jpg' alt='Personal Photo' width={300} height={300} />
+            <Image
+              src="/me.jpg"
+              alt="Personal Photo"
+              width={300}
+              height={300}
+            />
           </div>
           <div className={styles.headerContainer_content}>
             <h1 className={styles.title}>Triston Wasik</h1>
-            <span className={styles.subtitle}>Freelance Software Engineer</span>
+            <span className={styles.subtitle}>Software Engineer</span>
             <p>
-              Creating, embracing, and utilizing technology to create innovative solutions to everyday problems.
+              Creating, embracing, and utilizing technology to create innovative
+              solutions to everyday problems.
             </p>
-            <div className={styles.headerContainer_links}>
-              <a  href='/somelink.pdf' title='Resume Download' className={styles.resumeLink} download>Download Resume</a>
-            </div>
+            <SocialLinks />
           </div>
         </section>
 
         <h2 className={styles.sectionHeader}>Projects</h2>
         <section className={styles.featured}>
-          {featured && featured.map(item => (
-            <div className={styles.featuredContainer} key={item.title}>
-              <div className={styles.featuredContainer_content}>
-                <h2 className={styles.header}>{item.title}</h2>
-                <p className={styles.featuredContainer_technology}>{item.technology.toString()}</p>
-                <p>{item.description}</p>
-                <div className={styles.featuredContainer_contentLinks}>
-                  <a href={item.github} className={styles.link}>GitHub</a>
-                  <a href={item.demo} className={styles.link}>Demo</a>
+          {featured &&
+            featured.map((project, index) => (
+              <div className={styles.featuredContainer} key={index}>
+                <ProjectContent project={project} />
+                <div className={styles.featuredContainer_ImageContainer}>
+                  <img src={project.img} alt="Project Image" />
                 </div>
               </div>
-              <div className={styles.featuredContainer_ImageContainer}>
-                <img src={item.img} alt="Project Image" />
-              </div>
-            </div>
-          ))}
+            ))}
         </section>
 
         <section className={styles.projects}>
-          {projects && projects.map(item => (
-            <div className={styles.projectContainer} key={item.title}>
-              <h3 className={styles.header}>{item.title}</h3>
-              <p>{item.description}</p>
-              <div className={styles.projectsContainer_links}>
-                <a href={item.github} className={styles.link}>GitHub</a>
+          {miscProjects &&
+            miscProjects.map((project, index) => (
+              <div className={styles.projectContainer} key={index}>
+                <ProjectContent project={project} />
               </div>
-            </div>
-          ))}
+            ))}
         </section>
 
         <h2 className={styles.sectionHeader}>Employment</h2>
         <section className={styles.work}>
-          {work && work.map(item => (
-            <div className={styles.workContainer} key={item.title}>
-              <img src={item.img} alt={item.title} />
-              <div className={styles.workContainer_content}>
-                <h3>{item.title}</h3>
-                <p className={styles.workContainer_details}>{item.basis}: {item.dates}</p>
+          {work &&
+            work.map((item, index) => (
+              <div className={styles.workContainer} key={index}>
+                <img src={item.img} alt={item.title} />
+                <div className={styles.workContainer_content}>
+                  <h3>{item.title}</h3>
+                  <p className={styles.workContainer_details}>
+                    {item.basis}: {item.dates}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </section>
+
+        <h2 className={styles.sectionHeader}>Volunteer</h2>
+        <section className={styles.work}>
+          {volunteer &&
+            volunteer.map((item, index) => (
+              <div className={styles.workContainer} key={index}>
+                <img src={item.img} alt={item.label} />
+                <div className={styles.workContainer_content}>
+                  <h3>{item.label}</h3>
+                  <p className={styles.workContainer_details}>
+                    {item.position}: {item.dates}
+                  </p>
+                </div>
+              </div>
+            ))}
         </section>
       </main>
 
       <footer className={styles.footer}>
         <p>Triston Wasik - Juneau, AK</p>
-        <div className={styles.socialLinks}>
-          <a href='https://www.github.com/elfinslayer'><GithubLogo size={24} /></a>
-          <a href='https://www.linkedin.com/elfinslayer'><LinkedinLogo size={24} /></a>
-          <a href='mailto:twasik4@gmail.com'><Envelope size={24} /></a>
-          <a href='/somelink.doc' title='Resume Download' download><Article size={24} /></a>
-        </div>
+        <SocialLinks />
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
