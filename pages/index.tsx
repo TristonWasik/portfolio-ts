@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       description:
         "A portfolio designed around simplicity using typescript. Completely responsive, this design works on any device size using flex.",
       demo: "",
-      github: "https://github.com/Elfinslayer/Portfolio",
+      github: "https://github.com/tristonwasik/portfolio-ts",
       technology: ["NextJS", "Framer-Motion", "Typescript"],
     },
     {
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
       description:
         "A console app created to utilize USB events and detect when a USB switcher changes the device its attached to. It sends DDC/CI commands to the monitors so they change their displays.",
       demo: "",
-      github: "https://github.com/Elfinslayer/usb-display-switcher",
+      github: "https://github.com/tristonwasik/usb-display-switcher",
       technology: ["NodeJS"],
     },
     {
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
       description:
         "Collectionizer is a tool that lets you enter the ID or URL of a steam mod collection and gives you back all of the mod id's in a single list. This has a niche use for dedicated server owners/hosts.",
       demo: "https://collectionizer.esinnovations.com",
-      github: "https://github.com/Elfinslayer/collectionizer",
+      github: "https://github.com/tristonwasik/collectionizer",
       technology: ["NextJS", "Typescript"],
     },
     {
