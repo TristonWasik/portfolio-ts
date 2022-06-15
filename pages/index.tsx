@@ -113,10 +113,13 @@ const Home: NextPage = () => {
   const SocialLinks = () => {
     return (
       <div className={styles.socialLinks}>
-        <a href="https://www.github.com/elfinslayer" title="Github">
+        <a href="https://www.github.com/tristonwasik" title="Github">
           <GithubLogo size={24} />
         </a>
-        <a href="https://www.linkedin.com/elfinslayer" title="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/triston-wasik-6769aa214/"
+          title="LinkedIn"
+        >
           <LinkedinLogo size={24} />
         </a>
         <a href="mailto:twasik4@gmail.com" title="Email">
