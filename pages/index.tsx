@@ -27,9 +27,55 @@ const Home: NextPage = () => {
       isFeatured: true,
     },
     {
+      title: "Collectionizer",
+      description:
+        "Collectionizer is a tool that lets you enter the ID or URL of a steam mod collection and gives you back all of the mod id's in a single list. This has a niche use for dedicated server owners/hosts.",
+      demo: "https://collectionizer.esinnovations.com",
+      github: "https://github.com/tristonwasik/collectionizer",
+      img: "collectionizer.png",
+      technology: [
+        "NextJS",
+        "Typescript",
+        "Axios",
+        "Ackee",
+        "NextUI",
+        "Cheeriojs",
+      ],
+      isFeatured: true,
+    },
+    {
+      title: "Handbrake Automation App",
+      description:
+        "An app to automate the conversion of video files using the Handbrake CLI. This greatly reduces the filesize of videos for media servers.",
+      demo: "",
+      github: "",
+      img: "handbrake.png",
+      technology: ["ReactJS", "SocketIO"],
+      isFeatured: true,
+    },
+    {
+      title: "Server App",
+      description:
+        "WIP, coming soon (10/22). This app offers server owners a self-hosted solution to display the status of their servers to their friends and/or communities. Utilizes NextAuth to handle session based authentication and authorization with the Discord social login. Offers integration with zabbix and uptime kuma for automation of adding new server status items as well as updating existing ones.",
+      demo: "",
+      github: "",
+      img: "serverapp.png",
+      isFeatured: true,
+      technology: [
+        "NextJS",
+        "NextAuth",
+        "tRPC",
+        "T3",
+        "Prisma",
+        "Typescript",
+        "React-Hook-Forms",
+        "Zod",
+      ],
+    },
+    {
       title: "RecipeHost",
       description:
-        "A self-hosted recipe app that offers Peer-to-Peer (P2P) downloads of recipes and public data. This removes the need of a dedicated server and allows hosts to share and collaborate with other RecipeHost applications.",
+        "WIP. A self-hosted recipe app that offers Peer-to-Peer (P2P) downloads of recipes and public data. This removes the need of a dedicated server and allows hosts to share and collaborate with other RecipeHost applications.",
       github: "",
       demo: "",
       img: "https://via.placeholder.com/400x200?text=Coming+Soon",
@@ -41,7 +87,6 @@ const Home: NextPage = () => {
         "Docker",
         "Framer-Motion",
       ],
-      isFeatured: true,
     },
     {
       title: "Portfolio",
@@ -58,22 +103,6 @@ const Home: NextPage = () => {
       demo: "",
       github: "https://github.com/tristonwasik/usb-display-switcher",
       technology: ["NodeJS"],
-    },
-    {
-      title: "Collectionizer",
-      description:
-        "Collectionizer is a tool that lets you enter the ID or URL of a steam mod collection and gives you back all of the mod id's in a single list. This has a niche use for dedicated server owners/hosts.",
-      demo: "https://collectionizer.esinnovations.com",
-      github: "https://github.com/tristonwasik/collectionizer",
-      technology: ["NextJS", "Typescript"],
-    },
-    {
-      title: "Handbrake Automation App",
-      description:
-        "An app to automate the conversion of video files using the Handbrake CLI. This greatly reduces the filesize of videos for media servers.",
-      demo: "",
-      github: "",
-      technology: ["ReactJS", "SocketIO"],
     },
   ];
 
@@ -125,7 +154,7 @@ const Home: NextPage = () => {
         <a href="mailto:twasik4@gmail.com" title="Email">
           <Envelope size={24} />
         </a>
-        <a href="/resume.pdf" title="Resume Download" download>
+        <a href="/triston wasik resume.pdf" title="Resume Download" download>
           <Article size={24} />
         </a>
       </div>
